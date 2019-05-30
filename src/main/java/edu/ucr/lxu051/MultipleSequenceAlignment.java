@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class MultipleSequenceAlignment {
 
     public String alpha, beta, gamma;
+    public String alphaR, betaR, gammaR;
     public StringBuilder a, b, c;
     public int[][] scoreFunction;
 
@@ -18,6 +19,9 @@ public class MultipleSequenceAlignment {
         this.alpha = alpha;
         this.beta = beta;
         this.gamma = gamma;
+        this.alphaR = reverseString(alpha);
+        this.betaR = reverseString(beta);
+        this.gammaR = reverseString(gamma);
         this.scoreFunction = genBlastScoreFunction();
     }
 
@@ -39,7 +43,7 @@ public class MultipleSequenceAlignment {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("test2.txt"));
+        Scanner sc = new Scanner(new File("test4.txt"));
         String alpha = sc.nextLine();
         String beta = sc.nextLine();
         String gamma = sc.nextLine();
@@ -185,9 +189,9 @@ public class MultipleSequenceAlignment {
             beta = this.beta;
             gamma = this.gamma;
         } else {
-            alpha = reverseString(this.alpha);
-            beta = reverseString(this.beta);
-            gamma = reverseString(this.gamma);
+            alpha = this.alphaR;
+            beta = this.betaR;
+            gamma = this.gammaR;
             int tempA1 = this.alpha.length() - a2;
             int tempA2 = this.alpha.length() - a1;
             int tempB1 = this.beta.length() - b2;
