@@ -43,7 +43,7 @@ public class MultipleSequenceAlignment {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("test4.txt"));
+        Scanner sc = new Scanner(new File("test1.txt"));
         String alpha = sc.nextLine();
         String beta = sc.nextLine();
         String gamma = sc.nextLine();
@@ -53,6 +53,7 @@ public class MultipleSequenceAlignment {
         long endTime = System.currentTimeMillis();
         long time = (endTime - startTime) / 1000;
         System.out.println("Running time: " + time/60 + " min & " + time % 60 + " sec.");
+        System.out.println(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
     }
 
     public void dp(String alpha, String beta, String gamma) {
